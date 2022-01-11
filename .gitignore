@@ -26,7 +26,3 @@ yarn-error.log
 .idea/
 
 updates/
-composer.lock
-package-lock.json
-*.lock
-resources/lang/en.json
