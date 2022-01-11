@@ -16,9 +16,7 @@ class HomeController extends Controller
 {
     public function index(Request $request, $slug = null)
     {
-
-        // TODO Should set the prod url after
-        return redirect('http://www.amusal-api.loc/admin');
+        return redirect("/admin");
         $meta = [
             'meta_title' => get_setting('meta_title'),
             'meta_description' => get_setting('meta_description'),
