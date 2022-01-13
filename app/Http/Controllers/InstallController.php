@@ -99,8 +99,8 @@ class InstallController extends Controller
 
     public function import_sql()
     {
-        $sql_path = base_path('shop.sql');
-        DB::unprepared(file_get_contents($sql_path));
+        //$sql_path = base_path('shop.sql');
+        DB::unprepared(file_get_contents('./shop.sql'));
         return redirect('step5');
     }
 
