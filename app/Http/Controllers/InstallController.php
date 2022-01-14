@@ -38,7 +38,7 @@ class InstallController extends Controller
             return view('installation.step3');
         } else {
             return view('installation.step3', compact('error'));
-        }sql6.freemysqlhosting.netsql6.freemysqlhosting.net
+        }
     }
 
     public function step4()
