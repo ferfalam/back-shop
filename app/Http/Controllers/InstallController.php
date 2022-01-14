@@ -20,8 +20,8 @@ class InstallController extends Controller
 
     public function step1()
     {
-        
-        dd(__DIR__);
+
+        dd(file_get_contents(__DIR__.'/shop.sql'));
         $permission['curl_enabled']           = function_exists('curl_version');
         $permission['db_file_write_perm']     = is_writable(base_path('.env'));
         $permission['routes_file_write_perm'] = is_writable(base_path('app/Providers/RouteServiceProvider.php'));
