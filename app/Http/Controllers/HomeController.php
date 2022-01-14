@@ -16,7 +16,6 @@ class HomeController extends Controller
 {
     public function index(Request $request, $slug = null)
     {
-        return redirect("/admin");
         $meta = [
             'meta_title' => get_setting('meta_title'),
             'meta_description' => get_setting('meta_description'),
