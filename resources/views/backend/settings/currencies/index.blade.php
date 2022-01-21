@@ -34,7 +34,7 @@
         </div>
 
         <div class="col-lg-6">
-            <div class="card">
+<!--             <div class="card">
                 <div class="card-header">
                     <h5 class="mb-0 h6">{{translate('Set Currency Formats')}}</h5>
                 </div>
@@ -87,7 +87,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+ -->        </div>
     </div>
 @endcan
 

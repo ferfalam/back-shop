@@ -39,16 +39,15 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
-            'verification_code' => rand(100000, 999999)
+            'password' => Hash::make($request->password)
         ]);
 
-        if(get_setting('email_verification') != 1){
+        /*if(get_setting('email_verification') != 1){
             $user->email_verified_at = date('Y-m-d H:m:s');
         }
         else {
             $user->notify(new EmailVerificationNotification());
-        }
+        }*/
         $user->save();
 
         if($request->has('temp_user_id') && $request->temp_user_id != null){
@@ -59,12 +58,12 @@ class AuthController extends Controller
             ]);
         }
 
-        if(get_setting('email_verification') == 1){
+        /*if(get_setting('email_verification') == 1){
             return response()->json([
                 'success' => true,
                 'message' => translate('A verification code has been sent to your email.')
             ], 200);
-        }
+        }*/
 
         $tokenResult = $user->createToken('Personal Access Token');
         return $this->loginSuccess($tokenResult, $user);
@@ -94,13 +93,13 @@ class AuthController extends Controller
         }
         
         if($user->user_type == 'customer'){
-            if(get_setting('email_verification') == 1 && $user->email_verified_at == null){
+            /*if(get_setting('email_verification') == 1 && $user->email_verified_at == null){
                 return response()->json([
                     'success' => true,
                     'verified' => false,
                     'message' => translate('Please verify your account')
                 ], 200);
-            }
+            }*/
             $tokenResult = $user->createToken('Personal Access Token');
             return $this->loginSuccess($tokenResult, $user);
         }
