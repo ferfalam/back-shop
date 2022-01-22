@@ -23,14 +23,8 @@ class SettingController extends Controller
         switch ($section) {
             case 'currency':
                 $data = Cache::remember('system_default_currency_symbol', 86400, function () {
-                    return [
-                        'code' => Currency::find(get_setting('system_default_currency'))->symbol,
-                        'decimal_separator' => get_setting('decimal_separator'),
-                        'symbol_format' => get_setting('symbol_format'),
-                        'no_of_decimals' => get_setting('no_of_decimals'),
-                    ];
-                });     
-                dd($data);
+                        return Currency::find(get_setting('system_default_currency'))->symbol;
+                    });
                 break;
             case 'sliders':
                 $data = Cache::remember('sliders', 86400, function () {
